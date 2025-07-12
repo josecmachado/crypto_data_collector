@@ -61,7 +61,7 @@ crypto_data_collector/
 * Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/crypto_data_collector.git
+git clone https://github.com/josecmachado/crypto_data_collector.git
 cd crypto_data_collector
 
     Crie o ambiente virtual:
