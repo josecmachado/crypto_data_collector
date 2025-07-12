@@ -1,8 +1,13 @@
-from sqlalchemy import Table, Column, String, Integer, Numeric, ForeignKey, MetaData, TIMESTAMP
+from sqlalchemy import (
+    Table, Column, String, Integer, Numeric, ForeignKey,
+    MetaData, TIMESTAMP
+)
 from db.connection import get_engine
 
+# Cria um objeto metadata para agrupar as tabelas
 metadata = MetaData()
 
+# Define a tabela de criptomoedas
 cryptocurrency = Table(
     "cryptocurrency",
     metadata,
@@ -12,6 +17,7 @@ cryptocurrency = Table(
     Column("rank", Integer),
 )
 
+# Define a tabela de dados de mercado
 crypto_market_data = Table(
     "crypto_market_data",
     metadata,
@@ -25,5 +31,8 @@ crypto_market_data = Table(
 )
 
 def create_tables():
+    """
+    Cria as tabelas no banco de dados, se não existirem.
+    """
     engine = get_engine()
     metadata.create_all(engine)
