@@ -134,7 +134,7 @@ change_pct_24h	NUMERIC
 
 ## Exemplo de Saída
 
-DB SETTINGS LIDOS DO .env: {'host': '34.44.118.166', 'port': 5432, ...}
+DB SETTINGS LIDOS DO .env: {'host': 'HOST_AQUI', 'port': 5432, ...}
 Dados inseridos com sucesso!
 
 * Observações
