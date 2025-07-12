@@ -15,6 +15,8 @@ DB_SETTINGS = {
 
 # Define a URL base da API CoinCap
 API_BASE_URL = os.getenv("API_BASE_URL")
+API_KEY = os.getenv("API_KEY")
 
 # Exibe as variáveis carregadas (debug)
 print("DB SETTINGS LIDOS DO .env:", DB_SETTINGS)
+print("API BASE URL:", API_BASE_URL)

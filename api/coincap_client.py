@@ -1,29 +1,41 @@
 import requests
-from config.settings import API_BASE_URL
+from config.settings import API_BASE_URL, API_KEY
 from datetime import datetime
 
 class CoinCapClient:
     """
-    Cliente para consumir dados da API CoinCap.
+    Cliente para consumir dados da API CoinCap v3.
     """
+
     def __init__(self):
         self.base_url = API_BASE_URL
+        self.api_key = API_KEY
 
     def get_assets(self, limit=10):
         """
-        Busca informações das criptomoedas na API.
+        Busca informações das criptomoedas na API v3.
         """
         url = f"{self.base_url}/assets"
-        params = {"limit": limit}
+        params = {
+            "limit": limit,
+            "apiKey": self.api_key
+        }
+
         print(f"Fazendo requisição para URL: {url} params={params}")
+
         try:
-            response = requests.get(url, params=params, timeout=10)
+            response = requests.get(
+                url,
+                params=params,
+                timeout=10
+            )
             print(f"Status code: {response.status_code}")
             response.raise_for_status()
             return response.json()["data"]
         except requests.RequestException as e:
             print(f"Erro ao acessar CoinCap API: {e}")
             return []
+
 
     def prepare_crypto_data(self, assets):
         """
